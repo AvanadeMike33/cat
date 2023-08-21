@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>
+            Programmatically passing URL parameters to IFrame using JavaScript
+        </title>
+    </head>
+    
+    <body>
+        <iframe id="myIframe" frameborder="0" marginwidth="0" marginheight="0" scrolling="NO" width="100%" height="100%"></iframe>
+    </body>
+
+    <script>
+            let myIframe = document.getElementById("myIframe");
+            let endpoint = "https://apps.powerapps.com/play/e/f0bde5ed-4213-4c69-a32c-503444914338/a/3b974297-8976-4dc2-82c6-78b0a3d01fcf?tenantId=2ff06a03-1c24-40f5-9d3b-854d93aaed7f&acn_searchTerm=gf?source=website&screenColor=rgba(165,34,55,1)";
+            let url_string = window.location.href;
+            let url = new URL(url_string);
+            console.log(url_string);
+            let size = url.searchParams.get("size");
+            console.log(size);
+            let geo = url.searchParams.get("geo");
+            console.log(geo);
+            let adsURL = endpoint+"?geo="+geo+"&size="+size;
+            console.log(adsURL);
+            myIframe.src = adsURL;
+        </script>
+    
+</html>
